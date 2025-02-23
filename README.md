@@ -43,7 +43,7 @@ A scalable backend system for handling e-commerce orders with asynchronous proce
 ## Setup
 
 1. **Prerequisites**
-    - Python 3.8+
+    - Python 3.9+
     - PostgreSQL 12+
 
 2. **Install dependencies**
