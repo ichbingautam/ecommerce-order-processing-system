@@ -1,13 +1,44 @@
 # E-commerce Order Processing System
 
-A scalable backend system for handling e-commerce orders with async processing.
+A scalable backend system for handling e-commerce orders with asynchronous processing and real-time metrics.
 
 ## Features
-- RESTful API for order management
-- Async order processing with in-memory queue
-- Real-time metrics reporting
-- PostgreSQL database integration
-- Unit tests for core components
+
+- **Order Management**
+  - Create orders via REST API
+  - Check order status (Pending/Processing/Completed)
+  - Asynchronous order processing queue
+- **Metrics & Analytics**
+  - Total orders processed
+  - Average processing time
+  - Order status distribution
+- **Scalability**
+  - Handles 1000+ concurrent orders
+  - Async PostgreSQL connection pooling
+  - In-memory queue processing
+
+## Technology Stack
+
+- **Framework**: FastAPI (Python 3.9+)
+- **Database**: PostgreSQL
+- **Async Processing**: asyncio + in-memory queue
+- **Testing**: pytest + httpx
+- **Metrics**: Built-in aggregation
+- **Validation**: Pydantic models
+
+## System Architecture
+  ```
+  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐
+  │ REST API │──────▶│ In-Memory │──────▶│ Order │
+  │ (FastAPI) │ │ Queue │ │ Processor │
+  └─────────────┘ └─────────────┘ └─────────────┘
+  │ │ │
+  ▼ ▼ ▼
+  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐
+  │ PostgreSQL │◀──────│ Connection │◀──────│ Metrics │
+  │ Database │ │ Pool │ │ Collector │
+  └─────────────┘ └─────────────┘ └─────────────┘
+  ```
 
 ## Setup
 
